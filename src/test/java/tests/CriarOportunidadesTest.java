@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import pages.InitPage;
 import pages.LoginPage;
@@ -21,8 +22,8 @@ public class CriarOportunidadesTest {
     @Test
     public void testCriarOportunidades () throws InterruptedException, IOException {
         new LoginPage(navegador)
-                .username("Lucas Moreira")
-                .password("123456")
+                .username()
+                .password()
                 .clickSignin();
         new InitPage(navegador)
                 .navigator()
@@ -36,17 +37,43 @@ public class CriarOportunidadesTest {
                 .estagioVendas()
                 .selectEstagioVendas()
                 .previsaoFechamento()
-                .descricao("Teste Yaman")
+                .descricao()
                 .salvarOportunidade()
                 .backHome();
         new InitPage(navegador)
                 .navigator()
                 .myMouse()
                 .oportunidades();
+        new OportunidadesPage(navegador)
+                .addOportunidades()
+                .nomeOportunidadeDois()
+                .responsavel()
+                .selectResponsavelDois()
+                .estagioVendas()
+                .selectEstagioVendasDois()
+                .previsaoFechamentoDois()
+                .descricaoDois()
+                .salvarOportunidade()
+                .backHome();
+        new InitPage(navegador)
+                .navigator()
+                .myMouse()
+                .oportunidades();
+        new OportunidadesPage(navegador)
+                .addOportunidades()
+                .nomeOportunidadeTres()
+                .responsavel()
+                .selectResponsavelTres()
+                .estagioVendas()
+                .selectEstagioVendasTres()
+                .previsaoFechamentoTres()
+                .descricaoTres()
+                .salvarOportunidade()
+                .backHome();
     }
 
-//    @After
-//    public void finalTest() {
-//        navegador.quit();
-//    }
+    @After
+    public void finalTest() {
+        navegador.quit();
+    }
 }

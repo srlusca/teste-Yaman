@@ -1,30 +1,36 @@
 package pages;
 
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import support.ReadExcel;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 public class AddNewOportunidadePage {
 
     private WebDriver navegador;
-    private ReadExcel excel = new ReadExcel();
 
     public AddNewOportunidadePage(WebDriver navegador) throws IOException {
         this.navegador = navegador;
     }
 
-    public AddNewOportunidadePage nomeOportunidade() {
-        //ReadExcel excelFile = new ReadExcel();
-        //String nomeOportunidade = excelFile
-        navegador.findElement(By.id("Potentials_editView_fieldName_potentialname")).sendKeys("VARIAVEL NOME OPORTUNIDADE");
+    public AddNewOportunidadePage nomeOportunidade() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String nomeOportunidade = excel.getData().get(5).toString();
+        navegador.findElement(By.id("Potentials_editView_fieldName_potentialname")).sendKeys(nomeOportunidade);
+        return this;
+    }
+
+    public AddNewOportunidadePage nomeOportunidadeDois() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String nomeOportunidade = excel.getData().get(10).toString();
+        navegador.findElement(By.id("Potentials_editView_fieldName_potentialname")).sendKeys(nomeOportunidade);
+        return this;
+    }
+
+    public AddNewOportunidadePage nomeOportunidadeTres() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String nomeOportunidade = excel.getData().get(15).toString();
+        navegador.findElement(By.id("Potentials_editView_fieldName_potentialname")).sendKeys(nomeOportunidade);
         return this;
     }
 
@@ -34,7 +40,23 @@ public class AddNewOportunidadePage {
     }
 
     public AddNewOportunidadePage selectResponsavel() throws IOException {
-        navegador.findElement(By.xpath("//*[@id=\"select2-results-6\"]/*/*/*/div[text()='"+ excel.getData().get(5) +"']")).click();
+        ReadExcel excel = new ReadExcel();
+        String selectResponsavel = excel.getData().get(6).toString();
+        navegador.findElement(By.xpath("//*[@id=\"select2-results-6\"]/*/*/*/div[text()='"+ selectResponsavel +"']")).click();
+        return this;
+    }
+
+    public AddNewOportunidadePage selectResponsavelDois() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String selectResponsavel = excel.getData().get(11).toString();
+        navegador.findElement(By.xpath("//*[@id=\"select2-results-6\"]/*/*/*/div[text()='"+ selectResponsavel +"']")).click();
+        return this;
+    }
+
+    public AddNewOportunidadePage selectResponsavelTres() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String selectResponsavel = excel.getData().get(16).toString();
+        navegador.findElement(By.xpath("//*[@id=\"select2-results-6\"]/*/*/*/div[text()='"+ selectResponsavel +"']")).click();
         return this;
     }
 
@@ -43,17 +65,65 @@ public class AddNewOportunidadePage {
         return this;
     }
 
-    public AddNewOportunidadePage selectEstagioVendas() {
-        navegador.findElement(By.xpath("//*[@id=\"EditView\"]/div[2]/div/div/div[1]/table/tbody/tr[5]/td[4]/*[2]/*[text()='"+ "VARIAVEL ESTAGIO VENDAS" +"']")).click();
+    public AddNewOportunidadePage selectEstagioVendas() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String selectEstagioVendas = excel.getData().get(7).toString();
+        navegador.findElement(By.xpath("//*[@id=\"EditView\"]/div[2]/div/div/div[1]/table/tbody/tr[5]/td[4]/*[2]/*[text()='"+ selectEstagioVendas +"']")).click();
         return this;
     }
 
-    public AddNewOportunidadePage previsaoFechamento() {
-        navegador.findElement(By.id("Potentials_editView_fieldName_closingdate")).sendKeys("VARIAVEL PREVISAO FECHAMENTO");
+    public AddNewOportunidadePage selectEstagioVendasDois() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String selectEstagioVendas = excel.getData().get(12).toString();
+        navegador.findElement(By.xpath("//*[@id=\"EditView\"]/div[2]/div/div/div[1]/table/tbody/tr[5]/td[4]/*[2]/*[text()='"+ selectEstagioVendas +"']")).click();
         return this;
     }
 
-    public AddNewOportunidadePage descricao(String descricao) {
+    public AddNewOportunidadePage selectEstagioVendasTres() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String selectEstagioVendas = excel.getData().get(17).toString();
+        navegador.findElement(By.xpath("//*[@id=\"EditView\"]/div[2]/div/div/div[1]/table/tbody/tr[5]/td[4]/*[2]/*[text()='"+ selectEstagioVendas +"']")).click();
+        return this;
+    }
+
+    public AddNewOportunidadePage previsaoFechamento() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String previsaoFechamento = excel.getData().get(8).toString();
+        navegador.findElement(By.id("Potentials_editView_fieldName_closingdate")).sendKeys(previsaoFechamento);
+        return this;
+    }
+
+    public AddNewOportunidadePage previsaoFechamentoDois() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String previsaoFechamento = excel.getData().get(13).toString();
+        navegador.findElement(By.id("Potentials_editView_fieldName_closingdate")).sendKeys(previsaoFechamento);
+        return this;
+    }
+
+    public AddNewOportunidadePage previsaoFechamentoTres() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String previsaoFechamento = excel.getData().get(18).toString();
+        navegador.findElement(By.id("Potentials_editView_fieldName_closingdate")).sendKeys(previsaoFechamento);
+        return this;
+    }
+
+    public AddNewOportunidadePage descricao() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String descricao = excel.getData().get(9).toString();
+        navegador.findElement(By.id("Potentials_editView_fieldName_description")).sendKeys(descricao);
+        return this;
+    }
+
+    public AddNewOportunidadePage descricaoDois() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String descricao = excel.getData().get(14).toString();
+        navegador.findElement(By.id("Potentials_editView_fieldName_description")).sendKeys(descricao);
+        return this;
+    }
+
+    public AddNewOportunidadePage descricaoTres() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String descricao = excel.getData().get(19).toString();
         navegador.findElement(By.id("Potentials_editView_fieldName_description")).sendKeys(descricao);
         return this;
     }

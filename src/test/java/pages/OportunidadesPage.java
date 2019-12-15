@@ -2,8 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import support.ReadExcel;
 
 import java.io.IOException;
 
@@ -24,5 +23,29 @@ public class OportunidadesPage {
         Thread.sleep(3000);
         navegador.findElement(By.xpath("//*[@id=\"page\"]/nav/div[1]/div/div[1]/div/div[2]")).click();
         return new InitPage(navegador);
+    }
+
+    public OportunidadeClickPage clickPage() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String titulo = excel.getData().get(5).toString();
+        navegador.findElement(By.xpath("//*[@id=\"listview-table\"]/*[3]/*/*[@title='"+ titulo +"']")).click();
+
+        return new OportunidadeClickPage(navegador);
+    }
+
+    public OportunidadeClickPage clickPageDois() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String titulo = excel.getData().get(10).toString();
+        navegador.findElement(By.xpath("//*[@id=\"listview-table\"]/*[3]/*/*[@title='"+ titulo +"']")).click();
+
+        return new OportunidadeClickPage(navegador);
+    }
+
+    public OportunidadeClickPage clickPageTres() throws IOException {
+        ReadExcel excel = new ReadExcel();
+        String titulo = excel.getData().get(15).toString();
+        navegador.findElement(By.xpath("//*[@id=\"listview-table\"]/*[3]/*/*[@title='"+ titulo +"']")).click();
+
+        return new OportunidadeClickPage(navegador);
     }
 }
