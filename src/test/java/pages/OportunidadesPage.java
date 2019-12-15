@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.io.IOException;
+
 
 public class OportunidadesPage {
     private WebDriver navegador;
@@ -13,7 +15,7 @@ public class OportunidadesPage {
         this.navegador = navegador;
     }
 
-    public AddNewOportunidadePage addOportunidades() {
+    public AddNewOportunidadePage addOportunidades() throws IOException {
         navegador.findElement(By.id("Potentials_listView_basicAction_LBL_ADD_RECORD")).click();
         return new AddNewOportunidadePage(navegador);
     }

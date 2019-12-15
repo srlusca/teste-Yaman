@@ -1,6 +1,5 @@
 package tests;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +7,8 @@ import pages.InitPage;
 import pages.LoginPage;
 import pages.OportunidadesPage;
 import support.Web;
+
+import java.io.IOException;
 
 public class CriarOportunidadesTest {
     private WebDriver navegador;
@@ -18,7 +19,7 @@ public class CriarOportunidadesTest {
     }
 
     @Test
-    public void testCriarOportunidades () throws InterruptedException {
+    public void testCriarOportunidades () throws InterruptedException, IOException {
         new LoginPage(navegador)
                 .username("Lucas Moreira")
                 .password("123456")

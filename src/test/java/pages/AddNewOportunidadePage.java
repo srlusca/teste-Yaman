@@ -15,8 +15,9 @@ import java.util.Map;
 public class AddNewOportunidadePage {
 
     private WebDriver navegador;
+    private ReadExcel excel = new ReadExcel();
 
-    public AddNewOportunidadePage(WebDriver navegador) {
+    public AddNewOportunidadePage(WebDriver navegador) throws IOException {
         this.navegador = navegador;
     }
 
@@ -32,8 +33,8 @@ public class AddNewOportunidadePage {
         return this;
     }
 
-    public AddNewOportunidadePage selectResponsavel() {
-        navegador.findElement(By.xpath("//*[@id=\"select2-results-6\"]/*/*/*/div[text()='"+ "VARIAVEL RESPONSAVEL" +"']")).click();
+    public AddNewOportunidadePage selectResponsavel() throws IOException {
+        navegador.findElement(By.xpath("//*[@id=\"select2-results-6\"]/*/*/*/div[text()='"+ excel.getData().get(5) +"']")).click();
         return this;
     }
 
